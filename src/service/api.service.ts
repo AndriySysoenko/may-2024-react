@@ -1,18 +1,19 @@
 import {IUser} from "../models/IUser";
 import {IPost} from "../models/IPost";
 import axios from 'axios';
+import {IResponseUsers} from "../models/IResponseUsers";
+import {IResponsePosts} from "../models/IResponsePosts";
 
 let axiosInstance = axios.create ({
 	baseURL:'https://dummyjson.com',
-	// header: {"Content-Type":"application/json"}
 });
 
 export const getUsers = async():Promise<IUser[]> => {
-	let axiosResponse:IUser[] = await axiosInstance.get<IUser>('/users');
-	return (axiosResponse.data);
+	let axiosResponse= await axiosInstance.get<IResponseUsers>('/users');
+	return axiosResponse.data.users;
 }
 
 export const getPostsOfUser = async(userId:number):Promise<IPost[]> => {
-	let axiosResponse:IPost[] = await axiosInstance.get<IUser>('/users/' + userId + '/posts');
-	return (axiosResponse.data);
+	let axiosResponse = await axiosInstance.get<IResponsePosts>('/users/' + userId + '/posts');
+	return (axiosResponse.data.posts);
 }

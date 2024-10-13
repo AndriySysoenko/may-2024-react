@@ -1,6 +1,6 @@
-import {IAddress} from "./models/IAddress";
-import {IBank} from "./models/IBank";
-import {ICompany} from "./models/ICompany";
+import {IAddress} from "./IAddress";
+import {IBank} from "./IBank";
+import {ICompany} from "./ICompany"
 
 export interface IUser {
 	  id: number,
