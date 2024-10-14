@@ -6,14 +6,14 @@ import Post from "../post/Post";
 
 type PostProps = {posts: IPost[], userId:number}
 
-const Posts: FC<PostProps> = ({posts: initialPosts, userId}) => {
-const[posts, setPosts] = useState <IPost[]> ([]);
-
-useEffect (() => {
-    getPostsOfUser(userId)
-    .then ((response:IPost[]) => {setPosts(response);console.log(response)});
-
-  }, [userId]);
+const Posts: FC<PostProps> = ({posts, userId}) => {
+// const[posts, setPosts] = useState <IPost[]> ([]);
+//
+// useEffect (() => {
+//     getPostsOfUser(userId)
+//     .then ((response:IPost[]) => {setPosts(response);console.log(response)});
+//
+//   }, [userId]);
 
 return (
 		<div>
