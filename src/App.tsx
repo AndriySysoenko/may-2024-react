@@ -9,17 +9,10 @@ import Posts from "./components/posts/Posts";
 const App: FC = () => {
 
 const[userId, setUserId] = useState <number> (0);
-    // console.log(userId)
+
 const lift = (id:number) => {
     setUserId(id);
 }
-    // const[posts, setPosts] = useState <IPost[]> ([]);
-    // useEffect (() => {
-    //     if(userId>0)
-    //     getPostsOfUser(userId)
-    //         .then ((response:IPost[]) => {setPosts(response);console.log(response)});
-    //
-    // }, [userId]);
   return (
       <div>
           <h2>{userId}</h2>

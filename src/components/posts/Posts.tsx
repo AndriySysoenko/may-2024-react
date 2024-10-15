@@ -11,7 +11,7 @@ const[posts, setPosts] = useState <IPost[]> ([]);
 useEffect (() => {
 	if(userId>0)
     getPostsOfUser(userId)
-    .then ((response:IPost[]) => {setPosts(response);console.log(response)});
+    .then ((response:IPost[]) => {setPosts(response)});
   }, [userId]);
 
 return (
