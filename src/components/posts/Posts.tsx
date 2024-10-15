@@ -3,17 +3,16 @@ import {IPost} from "../../models/IPost";
 import {getPostsOfUser} from "../../service/api.service";
 import Post from "../post/Post";
 
+type PostProps = {userId:number}
 
-type PostProps = {posts: IPost[], userId:number}
+const Posts: FC<PostProps> = ({userId}) => {
+const[posts, setPosts] = useState <IPost[]> ([]);
 
-const Posts: FC<PostProps> = ({posts, userId}) => {
-// const[posts, setPosts] = useState <IPost[]> ([]);
-//
-// useEffect (() => {
-//     getPostsOfUser(userId)
-//     .then ((response:IPost[]) => {setPosts(response);console.log(response)});
-//
-//   }, [userId]);
+useEffect (() => {
+	if(userId>0)
+    getPostsOfUser(userId)
+    .then ((response:IPost[]) => {setPosts(response);console.log(response)});
+  }, [userId]);
 
 return (
 		<div>

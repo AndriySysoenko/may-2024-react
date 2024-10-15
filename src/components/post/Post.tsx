@@ -8,7 +8,7 @@ const Post:FC<IProps> = ({post}) => {
             <p>ID: {post.id},</p>
             <h3>Title: {post.title}</h3>
             <p>body: {post.body}</p>
-            <ul>
+            <ul>tags:
                 {post.tags.map((tags) => (
                     <li><p>{tags}</p></li>
                 ))}
