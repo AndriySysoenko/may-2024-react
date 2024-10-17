@@ -27,6 +27,7 @@ const User:FC <IUserProps> = ({item}) => {
                 <li>catchPhrase: {item.company.catchPhrase}</li>
                 <li>bs: {item.company.bs}</li>
             </ul>
+            <hr/>
         </div>
     );
 };
