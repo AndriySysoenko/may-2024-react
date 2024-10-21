@@ -7,20 +7,22 @@ import { IUser } from '../models/IUser';
 
 
 const UsersPage = () => {
-    const [query, setQuery] = useSearchParams ({page:'1'})
-    const [users, setUsers] = useState<IUser[]>([])
+    const [query] = useSearchParams ({page:'1'});
+    const [users, setUsers] = useState<IUser[]>([]);
+    const [marker, setMarker] = useState<boolean>(false);
 
     useEffect(() => {
         const page = query.get('page')
         if(page){
             getUsers(+page)
-                .then((velue: IUser[]) => setUsers(velue))
-        }
+                .then((value: {users:IUser[]} & {marker: boolean}) => {
+                    setUsers(value.users); setMarker(value.marker);
+                })}
     }, [query]);
     return (
         <div>
             <Users users={users}/>
-            <PaginationComponent/>
+            <PaginationComponent marker={marker}/>
 
         </div>
     );

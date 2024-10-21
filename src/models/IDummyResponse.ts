@@ -1,6 +1,6 @@
 export interface IDummyResponse {
     users: [],
-    tota: number,
+    total: number,
     skip: number,
     limit: number
 }

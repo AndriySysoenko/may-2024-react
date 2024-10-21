@@ -1,20 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {useSearchParams} from  'react-router-dom'
-// import { getAllUsers } from '../../services/api.service';
 
-const PaginationComponent = () => {
+type IPaginantionProps = {marker:boolean}
+const PaginationComponent:FC<IPaginantionProps> = ({marker}) => {
    const [query, setQuery] = useSearchParams ({page:'1'})
-
-    // useEffect(() => {
-    //     const page = query.get('page')
-    //     if(page){
-    //         getAllUsers(+page)
-    //     }
-    // }, [query]);
 
    const getPreviousList = () =>{
        const page = query.get('page')
-       if(page && +page>0) {
+       if(page && +page > 0) {
            let actualPage = +page;
            actualPage--;
            setQuery({page: actualPage.toString()})
@@ -30,11 +23,10 @@ const PaginationComponent = () => {
         }
     }
 
-
     return (
         <div>
             <button onClick={getPreviousList}>Prev</button>
-            <button onClick={getNextList}>Next</button>
+            <button onClick={getNextList} disabled = {marker}>Next</button>
         </div>
     );
 };

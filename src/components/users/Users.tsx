@@ -1,17 +1,10 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { IUser } from '../../models/IUser';
-import {getUsers } from '../../services/api.service';
 
 type IUserProps = {users:IUser[]}
 
 const Users : FC<IUserProps> = ({users}) => {
-    // const [users, setUsers] = useState<IUser[]>([])
-    //
-    // useEffect(() => {
-    //     getUsers()
-    //         .then((velue: IUser[]) => setUsers(velue))
-    // }, []);
-    
+
     return (
         <div>
             {

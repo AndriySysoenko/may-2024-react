@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import PostsPage from "../pages/PostsPage";
 import UsersPage from "../pages/UsersPage";
+import PostDitailsPage from "../pages/PostDitailsPage";
 
 
 export const routes = createBrowserRouter([
@@ -14,12 +15,16 @@ export const routes = createBrowserRouter([
                 element:<UsersPage/>
             },
             {
-                path: '/users',
+                path: 'users',
                 element: <UsersPage/>
             },
             {
-                path: '/posts',
-                element: <PostsPage/>
+                path: 'posts',
+                element: <PostsPage/>,
+            },
+            {
+                path: 'posts/:id',
+                element: <PostDitailsPage/>,
             }
         ]
     }
