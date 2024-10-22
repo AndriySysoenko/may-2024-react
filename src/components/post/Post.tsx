@@ -7,7 +7,7 @@ const Post = () => {
     const allPostInfo: IPost = info;
     return (
         <div>
-            <div key={allPostInfo.id}>
+            <div>
                 <p>ID: {allPostInfo.id}</p>
                 <h2>Title: {allPostInfo.title}</h2>
                 <p>Body: {allPostInfo.body}</p>

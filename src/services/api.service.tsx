@@ -18,11 +18,9 @@ export const getUsers = async (page:number):Promise <{users:IUser[]} & {marker: 
             limit:limit
         }
     })
-    let marker:boolean;
+    let marker:boolean = false;
     if(+axiosResponse.data.total/(axiosResponse.data.limit + axiosResponse.data.skip) <= 1)
         marker = true;
-    else
-        marker = false;
     return {
         users: axiosResponse.data.users,
         marker
@@ -38,11 +36,9 @@ export const getPosts = async (page:number):Promise<{posts:IPost[]} & {marker: b
             limit:limit
         }
     })
-    let marker:boolean;
+    let marker:boolean = false;
     if(+axiosResponse.data.total/(axiosResponse.data.limit + axiosResponse.data.skip) <= 1)
         marker = true;
-    else
-        marker = false;
     return {
         posts: axiosResponse.data.posts,
         marker
