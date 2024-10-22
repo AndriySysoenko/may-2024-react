@@ -10,7 +10,7 @@ const MenuLayout = () => {
                     <Link to ={'/users'}>Users</Link>
                 </li>
                 <li className={styles.viewItem}>
-                    <Link to ={'/posts'}>Posts</Link>
+                    <Link to ={'/posts?page=1'}>Posts</Link>
                 </li>
             </ul>
         </div>
