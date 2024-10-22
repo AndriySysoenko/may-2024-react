@@ -3,3 +3,7 @@ export interface IFormPost {
     body: string,
     userId: number,
 }
+
+export interface IPost extends IFormPost {
+    id:number
+}
