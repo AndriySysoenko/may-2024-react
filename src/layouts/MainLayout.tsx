@@ -5,8 +5,7 @@ import {IUserInfo} from "../models/IUserInfo";
 
 const MainLayout = () => {
     const [userData, setUserData] = useState<IUserInfo | undefined>(undefined)
-    console.log(userData)
-    const userIdentification =(userLoginInfo:IUserInfo) =>{
+    const userIdentification =(userLoginInfo:IUserInfo) => {
         setUserData(userLoginInfo)
     }
 
