@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { useForm } from 'react-hook-form';
 import {IFormLogin} from "../../models/IFormLogin";
 import {login} from "../../services/api.service";
 
-type FormLoginProps = IFormLogin;
-const FormForLogin = () => {
-    const {handleSubmit, register} = useForm<FormLoginProps>();
+type FormLoginProps = {loginData:(formInputData:IFormLogin) => void};
+const FormForLogin:FC<FormLoginProps> = ({loginData}) => {
+    const {handleSubmit, register} = useForm<IFormLogin>();
 
-  const loginHandler = (formInputData:FormLoginProps) => {
-        login(formInputData);
-        console.log(formInputData)
+  const loginHandler = (formInputData:IFormLogin) => {
+        loginData(formInputData);
+        // console.log(formInputData)
     }
 
     return (

@@ -9,9 +9,8 @@ const axiosInstance = axios.create({
 
 
 
-export const login = async (formInputData:IFormLogin):Promise<IUserWithToken> => {
+export const login = async (dataForLogin:IFormLogin):Promise<IUserWithToken> => {
     const exexpiresInMins:number = 10;
-    const {data:userLoginData} = await axiosInstance.post<IUserWithToken>('/login', {formInputData, exexpiresInMins})
-    console.log(userLoginData)
+    const {data:userLoginData} = await axiosInstance.post<IUserWithToken>('/login', {...dataForLogin, exexpiresInMins})
     return userLoginData
 }

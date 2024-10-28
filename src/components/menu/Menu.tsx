@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Link} from "react-router-dom";
 import styles from './MenuStyle.module.css'
+import {IUserInfo} from "../../models/IUserInfo";
 
-const Menu = () => {
+type MenuInfoProps = {
+    userData?: IUserInfo
+}
+const Menu:FC<MenuInfoProps> = ({userData}) => {
     return (
         <div>
             <ul className={styles.menu}>
@@ -15,7 +19,9 @@ const Menu = () => {
                 <li>
                     <Link to={'/carts'}>Carts</Link>
                 </li>
-
+                <li>
+                    {userData?.firstName} {userData?.lastName}
+                </li>
             </ul>
         </div>
     );
