@@ -7,12 +7,11 @@ const CartsPage = () => {
     const [carts, setCarts] = useState<ICart[]>([])
     useEffect(() => {
         loadCarts()
-            .then(response => setCarts(response))
+            .then(carts => setCarts(carts))
     }, []);
 
     return (
         <div>
-            This is must be all information about carts after login
             {
                 JSON.stringify(carts)
             }
