@@ -8,9 +8,9 @@ import {IUserInfo} from "../models/IUserInfo";
 
 const LoginPage = () => {
     const [dataForLogin, setDataForLogin] = useState<IFormLogin | null>(null)
-    const loginData = (formInputData:IFormLogin) => {
-        setDataForLogin(formInputData)
-    }
+        const loginData = (formInputData:IFormLogin) => {
+            setDataForLogin(formInputData)
+        }
 
     const userIdentification = useOutletContext<(userLoginInfo:IUserInfo) => void>()
     const navigate = useNavigate();
@@ -19,9 +19,10 @@ const LoginPage = () => {
         if (dataForLogin) {
             login(dataForLogin).then(response => {
                 userIdentification({ firstName: response.firstName, lastName: response.lastName });
-                navigate('/')})
-                .catch(error => {
-                console.error("Помилка авторизації:", error);
+                navigate('/')
+            })
+                .catch(reason => {
+                    alert("Authorization error. Try logging in again");
             });
         }
 
