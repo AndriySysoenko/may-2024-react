@@ -6,7 +6,6 @@ import {getUsers} from "../../services/api.service";
 type UserSliceType = {
     users: IUser[];
 }
-
 const usersInitState:UserSliceType = {
     users: [],
 }
@@ -31,7 +30,7 @@ export const usersSlice = createSlice({
                 state.users = action.payload;
             })
             .addCase(loadUsers.rejected, (state, action: PayloadAction<AxiosError | undefined>) => {
-                alert(action.payload?.message)
+                alert('Users ' + action.payload?.message)
             })
 })
 

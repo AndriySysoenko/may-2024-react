@@ -31,7 +31,7 @@ export const commentsSlice = createSlice({
                 state.comments = action.payload;
             })
             .addCase(loadComments.rejected, (state, action: PayloadAction<AxiosError | undefined>) => {
-                alert(action.payload?.message)
+                alert('Comments ' + action.payload?.message)
             })
 })
 

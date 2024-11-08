@@ -31,7 +31,7 @@ export const postsSlice = createSlice({
                 state.posts = action.payload;
             })
             .addCase(loadPosts.rejected, (state, action: PayloadAction<AxiosError | undefined>) => {
-                alert(action.payload?.message)
+                alert('Posts ' + action.payload?.message)
             })
 })
 
