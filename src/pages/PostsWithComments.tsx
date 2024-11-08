@@ -5,6 +5,7 @@ import {commentsSliceAction} from "../redux/slices/commentsSlice";
 import {IPost} from "../models/IPost";
 import {IComment} from "../models/IComment";
 import Post from "../components/post/Post";
+import Comment from "../components/comment/Comment";
 
 const PostsWithComments = () => {
     let {posts} = useAppSelector(state => state.postsSlice);
@@ -27,8 +28,7 @@ const PostsWithComments = () => {
                         <ul>
                             {comments.filter(comment => comment.postId === post.id)
                                 .map((comment: IComment) => (
-                                    <li key={comment.id}>PostID: {comment.postId} ID: {comment.id} <p>{comment.body}</p>
-                                    </li>
+                                    <li key={comment.id}><Comment item={comment}/></li>
                                 ))}
                         </ul>
 

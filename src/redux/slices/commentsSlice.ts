@@ -5,15 +5,13 @@ import {IComment} from "../../models/IComment";
 
 type CommentSliceType = {
     comments: IComment[]
-    error: AxiosError | null
 }
 
 const commentsInitState:CommentSliceType = {
-    comments: [],
-    error: null
+    comments: []
 }
 
-const loadComments = createAsyncThunk <IComment[], void, {rejectValue: AxiosError}>('PostsSlice/loadUsers', async (_, thunkAPI)=>{
+const loadComments = createAsyncThunk <IComment[], void, {rejectValue: AxiosError}>('CommentsSlice/loadComments', async (_, thunkAPI)=>{
     try {
         let commentsFromAPI = await getComments();
         return thunkAPI.fulfillWithValue(commentsFromAPI)
@@ -31,7 +29,6 @@ export const commentsSlice = createSlice({
         builder
             .addCase(loadComments.fulfilled, (state, action: PayloadAction<IComment[]>)=>{
                 state.comments = action.payload;
-                state.error = null;
             })
             .addCase(loadComments.rejected, (state, action: PayloadAction<AxiosError | undefined>) => {
                 alert(action.payload?.message)

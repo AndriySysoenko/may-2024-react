@@ -5,15 +5,13 @@ import {getPosts} from "../../services/api.service";
 
 type PostSliceType = {
     posts: IPost[]
-    error: AxiosError | null
 }
 
 const postsInitState:PostSliceType = {
     posts: [],
-    error: null
 }
 
-const loadPosts = createAsyncThunk <IPost[], void, {rejectValue: AxiosError}>('PostsSlice/loadUsers', async (_, thunkAPI)=>{
+const loadPosts = createAsyncThunk <IPost[], void, {rejectValue: AxiosError}>('PostsSlice/loadPosts', async (_, thunkAPI)=>{
     try {
         let postsFromAPI = await getPosts();
         return thunkAPI.fulfillWithValue(postsFromAPI)

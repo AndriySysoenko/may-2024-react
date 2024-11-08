@@ -5,15 +5,13 @@ import {getUsers} from "../../services/api.service";
 
 type UserSliceType = {
     users: IUser[];
-    error: AxiosError | null
 }
 
 const usersInitState:UserSliceType = {
     users: [],
-    error: null
 }
 
-const loadUsers = createAsyncThunk<IUser[], void, { rejectValue: AxiosError }>('usersSlice/loadUsers', async (_, thunkAPI)=>{
+const loadUsers = createAsyncThunk<IUser[], void, {rejectValue: AxiosError}>('usersSlice/loadUsers', async (_, thunkAPI)=>{
     try {
         let usersFromAPI = await getUsers();
         return thunkAPI.fulfillWithValue(usersFromAPI)
