@@ -9,7 +9,7 @@ const Posts = () => {
     let dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(postsSliceAction.loadPosts())
+        if (posts.length === 0 ) dispatch(postsSliceAction.loadPosts())
 
     }, []);
 

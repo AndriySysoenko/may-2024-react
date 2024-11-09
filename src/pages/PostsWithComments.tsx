@@ -8,14 +8,14 @@ import Post from "../components/post/Post";
 import Comment from "../components/comment/Comment";
 
 const PostsWithComments = () => {
+
     let {posts} = useAppSelector(state => state.postsSlice);
     let {comments} = useAppSelector(state => state.commentsSlice);
     let dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(postsSliceAction.loadPosts())
-        dispatch(commentsSliceAction.loadComments())
-
+        if (posts.length === 0 ) dispatch(postsSliceAction.loadPosts())
+        if (comments.length === 0) dispatch(commentsSliceAction.loadComments())
     }, []);
 
     return (

@@ -10,7 +10,7 @@ const Comments = () => {
     let dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(commentsSliceAction.loadComments())
+        if (comments.length === 0) dispatch(commentsSliceAction.loadComments())
 
     }, []);
 
